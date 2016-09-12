@@ -22,16 +22,9 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tasks"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="rest/index">首页</a></li>
-                        <li><a href="rest/user">个人中心</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">退出</a></li>
-                    </ul>
-                </li>
+                <li><a href="https://github.com/smay1227">GitHub</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

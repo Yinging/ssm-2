@@ -18,7 +18,7 @@ public class AppController {
     @Resource
     UserService userService;
 
-    @RequestMapping("useRList")
+    @RequestMapping("userList")
     public @ResponseBody List<User> getUser(){
         List<User> users = userService.getUsers();
         System.out.println("index here");
