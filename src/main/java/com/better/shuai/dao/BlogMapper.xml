@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.better.shuai.dao.BlogMapper" >
   <resultMap id="BaseResultMap" type="com.better.shuai.model.Blog" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="day" property="day" jdbcType="VARCHAR" />
+    <id column="month" property="month" jdbcType="VARCHAR" />
+    <id column="urlname" property="urlname" jdbcType="VARCHAR" />
+    <id column="year" property="year" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
@@ -66,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, content, type
+    day, month, urlname, year, title, content, type
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.better.shuai.model.BlogExample" >
     select
@@ -82,15 +85,21 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.better.shuai.model.BlogKey" >
     select 
     <include refid="Base_Column_List" />
     from blog
-    where id = #{id,jdbcType=INTEGER}
+    where day = #{day,jdbcType=VARCHAR}
+      and month = #{month,jdbcType=VARCHAR}
+      and urlname = #{urlname,jdbcType=VARCHAR}
+      and year = #{year,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="com.better.shuai.model.BlogKey" >
     delete from blog
-    where id = #{id,jdbcType=INTEGER}
+    where day = #{day,jdbcType=VARCHAR}
+      and month = #{month,jdbcType=VARCHAR}
+      and urlname = #{urlname,jdbcType=VARCHAR}
+      and year = #{year,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.better.shuai.model.BlogExample" >
     delete from blog
@@ -99,16 +108,27 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.better.shuai.model.Blog" >
-    insert into blog (id, title, content, 
+    insert into blog (day, month, urlname, 
+      year, title, content, 
       type)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+    values (#{day,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{urlname,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.better.shuai.model.Blog" >
     insert into blog
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="day != null" >
+        day,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="urlname != null" >
+        urlname,
+      </if>
+      <if test="year != null" >
+        year,
       </if>
       <if test="title != null" >
         title,
@@ -121,8 +141,17 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+      <if test="day != null" >
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="urlname != null" >
+        #{urlname,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
@@ -144,8 +173,17 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update blog
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.day != null" >
+        day = #{record.day,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urlname != null" >
+        urlname = #{record.urlname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=VARCHAR},
       </if>
       <if test="record.title != null" >
         title = #{record.title,jdbcType=VARCHAR},
@@ -163,7 +201,10 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update blog
-    set id = #{record.id,jdbcType=INTEGER},
+    set day = #{record.day,jdbcType=VARCHAR},
+      month = #{record.month,jdbcType=VARCHAR},
+      urlname = #{record.urlname,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR}
@@ -184,13 +225,19 @@
         type = #{type,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where day = #{day,jdbcType=VARCHAR}
+      and month = #{month,jdbcType=VARCHAR}
+      and urlname = #{urlname,jdbcType=VARCHAR}
+      and year = #{year,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.better.shuai.model.Blog" >
     update blog
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where day = #{day,jdbcType=VARCHAR}
+      and month = #{month,jdbcType=VARCHAR}
+      and urlname = #{urlname,jdbcType=VARCHAR}
+      and year = #{year,jdbcType=VARCHAR}
   </update>
 </mapper>

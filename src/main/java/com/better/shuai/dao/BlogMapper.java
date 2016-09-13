@@ -2,6 +2,7 @@ package com.better.shuai.dao;
 
 import com.better.shuai.model.Blog;
 import com.better.shuai.model.BlogExample;
+import com.better.shuai.model.BlogKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,7 +11,7 @@ public interface BlogMapper {
 
     int deleteByExample(BlogExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(BlogKey key);
 
     int insert(Blog record);
 
@@ -18,7 +19,7 @@ public interface BlogMapper {
 
     List<Blog> selectByExample(BlogExample example);
 
-    Blog selectByPrimaryKey(Integer id);
+    Blog selectByPrimaryKey(BlogKey key);
 
     int updateByExampleSelective(@Param("record") Blog record, @Param("example") BlogExample example);
 

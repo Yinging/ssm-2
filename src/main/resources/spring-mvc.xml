@@ -82,6 +82,9 @@
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 
+    <!-- 对静态资源文件的访问 -->
+    <mvc:resources location="/css/" mapping="/css/**"/>
+
     <!-- 启用shrio授权注解拦截方式 -->
     <!--<aop:config proxy-target-class="true"></aop:config>
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">

@@ -1,21 +1,11 @@
 package com.better.shuai.model;
 
-public class Blog {
-    private Integer id;
-
+public class Blog extends BlogKey {
     private String title;
 
     private String content;
 
     private String type;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
