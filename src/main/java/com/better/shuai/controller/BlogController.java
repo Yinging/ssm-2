@@ -29,4 +29,9 @@ public class BlogController {
         return "blog";
     }
 
+    @RequestMapping(value = "/edit")
+    public String blogEdit(){
+        return "edit";
+    }
+
 }
