@@ -24,21 +24,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body style="background-color: #fcfcfc">
 <%@ include file="navi.jsp" %>
 <div class="row" style="margin-top: 70px">
     <div class="container center-block">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-sm-12">
-            <div class="list-group">
+
                 <c:if test="${not empty blogs}">
                     <c:forEach items="${blogs}" var="blog">
-                        <a href="rest/blog/${blog.year}/${blog.month}/${blog.day}/${blog.urlname}" class="list-group-item">
-                                ${blog.title}
-                        </a>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="rest/blog/${blog.id}/${blog.year}/${blog.month}/${blog.day}/${blog.urlname}">
+                                        ${blog.title}
+                                </a>
+                            </div>
+                            <div class="panel-footer">
+                                <small>${blog.date}</small>
+                            </div>
+                        </div>
                     </c:forEach>
                 </c:if>
-            </div>
+
         </div>
         <div class="col-md-2">
         </div>

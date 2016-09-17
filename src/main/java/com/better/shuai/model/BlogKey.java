@@ -3,6 +3,8 @@ package com.better.shuai.model;
 public class BlogKey {
     private String day;
 
+    private Integer id;
+
     private String month;
 
     private String urlname;
@@ -15,6 +17,14 @@ public class BlogKey {
 
     public void setDay(String day) {
         this.day = day == null ? null : day.trim();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMonth() {

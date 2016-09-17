@@ -20,19 +20,17 @@
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/blogbody.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/blogbody.css?v=09171349">
 </head>
 <body>
 <%@ include file="navi.jsp" %>
-<div class="container center-block" style="margin-top: 70px">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-body blog">
-                <h2>${blog.title}</h2>
-                ${blog.content}
-            </div>
+<div class="row" >
+    <div class="container center-block">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-sm-12 blog" style="margin-top: 70px; margin-bottom: 30px;">
+            ${blog.content}
         </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

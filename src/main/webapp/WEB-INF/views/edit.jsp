@@ -20,10 +20,8 @@
     <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.0.min.js"></script>
-
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/summernote.css">
@@ -37,7 +35,10 @@
     <div class="container center-block">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-sm-12">
+            <input id="urlname" type="text" class="form-control" placeholder="请输入英文名字" style="margin-top: 20px">
+            <input id="title" type="text" class="form-control" placeholder="请输入标题" style="margin-top: 30px; margin-bottom: 30px">
             <div id="summernote"></div>
+            <button id="commit" type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 70px">完成</button>
         </div>
         <div class="col-md-2"></div>
     </div>

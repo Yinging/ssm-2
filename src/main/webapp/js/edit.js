@@ -5,37 +5,59 @@ $(document).ready(function () {
     $('#summernote').summernote({
         lang : 'zh-CN',
         minHeight : 300,
-        callbacks: {
-            // onImageUpload的参数为files，summernote支持选择多张图片
+        callbacks : {
             onImageUpload : function(files) {
                 var $files = $(files);
-                // 通过each方法遍历每一个file
                 $files.each(function() {
                     var file = this;
-                    // FormData，新的form表单封装，具体可百度，但其实用法很简单，如下
                     var data = new FormData();
-                    // 将文件加入到file中，后端可获得到参数名为“file”
                     data.append("file", file);
-                    // ajax上传
                     $.ajax({
-                        url: 'rest/file/upload',
-                        method: 'POST',
-                        data: data,
-                        processData: false,
-                        contentType: false,
-                        success: function(data) {
-                            console.log("------>" + data.fileName);
-                            $this.summernote('insertImage', data.fileName);
-
+                        data : data,
+                        type : "POST",
+                        url : "rest/file/upload",
+                        cache : false,
+                        contentType : false,
+                        processData : false,
+                        success : function(response) {
+                            var json = jsonEval(response);
+                            console.log("-------->" + json["fileName"]);
+                            $('#summernote').summernote('insertImage', json["fileName"]);
                         },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            alert(XMLHttpRequest.status);
-                            alert(XMLHttpRequest.readyState);
-                            alert(textStatus);
-                        }
+                        error : console.log("-------->error!")//YUNM.ajaxError
                     });
                 });
             }
         }
     });
+
+    $('#commit').click(function () {
+        commit();
+    });
 });
+
+function commit(){
+    var urlname = $('#urlname').val();
+    var title = $('#title').val();
+    var content =  $('#summernote').summernote('code');;
+    console.log("urlname:" + urlname);
+    console.log("title:" + title);
+    console.log("content:" + content);
+    $.post("rest/blog/insert", { urlname: urlname, title: title, content: content},
+        function(data){
+            window.location.href = "rest/index";
+        });
+}
+
+function jsonEval(data) {
+    try {
+        if ($.type(data) == 'string')
+            return eval('(' + data + ')');
+        else
+            return data;
+    } catch (e) {
+        return {};
+    }
+}
+
+
