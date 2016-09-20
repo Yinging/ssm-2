@@ -1,6 +1,5 @@
 package com.better.shuai.controller;
 
-import com.better.shuai.model.User;
 import com.better.shuai.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,7 @@ public class AppController {
     @Resource
     UserService userService;
 
-    @RequestMapping("userList")
+    /*@RequestMapping("userList")
     public @ResponseBody List<User> getUser(){
         List<User> users = userService.getUsers();
         System.out.println("index here");
@@ -27,7 +26,7 @@ public class AppController {
             System.out.println("users name: " + user.getName());
         }
         return users;
-    }
+    }*/
 
     @RequestMapping("user")
     public String showUser(){

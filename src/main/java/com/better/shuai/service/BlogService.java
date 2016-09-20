@@ -6,6 +6,7 @@ import com.better.shuai.model.BlogExample;
 import com.better.shuai.model.BlogKey;
 import com.better.shuai.utils.DateUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -38,6 +39,7 @@ public class BlogService {
         return blogMapper.selectByPrimaryKey(blogKey);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public void insert(String urlname, String content, String title, String type){
         Blog blog = new Blog();
 

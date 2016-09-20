@@ -28,7 +28,11 @@
     <div class="container center-block">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-sm-12 blog" style="margin-top: 70px; margin-bottom: 30px;">
-            ${blog.content}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    ${blog.content}
+                </div>
+            </div>
         </div>
         <div class="col-md-2"></div>
     </div>
