@@ -8,6 +8,9 @@
 
   ![image](https://github.com/smay1227/ssm/blob/master/img/pcblog.png)
   <p>pc博客内容</p><br/>
+  
+  ![image](https://github.com/smay1227/ssm/blob/master/img/pclogin.png)
+  <p>pc登录</p><br/>
 
   ![image](https://github.com/smay1227/ssm/blob/master/img/pcedit.png)
   <p>pc博客新增</p><br/>
@@ -22,6 +25,9 @@
 
   ![image](https://github.com/smay1227/ssm/blob/master/img/phoneblog.PNG)
   <p>mobile博客内容</p><br/>
+  
+  ![image](https://github.com/smay1227/ssm/blob/master/img/moblielogin.png)
+  <p>mobile登录</p><br/>
 
   ![image](https://github.com/smay1227/ssm/blob/master/img/phoneedit.PNG)
   <p>mobile博客新增</p><br/>
