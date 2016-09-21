@@ -27,4 +27,13 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
+    /**
+     * 通过角色id 查询角色 拥有的权限
+     *
+     * @param roleId
+     * @return
+     */
+    List<Permission> selectPermissionsByRoleId(Long roleId);
+
 }

@@ -39,7 +39,7 @@ $(document).ready(function () {
 function commit(){
     var urlname = $('#urlname').val();
     var title = $('#title').val();
-    var content =  $('#summernote').summernote('code');;
+    var content =  $('#summernote').summernote('code');
     console.log("urlname:" + urlname);
     console.log("title:" + title);
     console.log("content:" + content);

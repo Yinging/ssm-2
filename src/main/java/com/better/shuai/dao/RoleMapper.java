@@ -27,4 +27,13 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    /**
+     * 通过用户id 查询用户 拥有的角色
+     *
+     * @param userId
+     * @return
+     */
+    List<Role> selectRolesByUserId(Long userId);
+
 }

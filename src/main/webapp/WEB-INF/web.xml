@@ -9,6 +9,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath*:applicationContext.xml
+            classpath*:applicationContext-shiro.xml
         </param-value>
     </context-param>
     <!-- 配置Spring上下文监听器 -->
@@ -16,6 +17,21 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <!-- Spring -->
+
+    <!-- shiro 安全过滤器 -->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- 配置Spring字符编码过滤器 -->
     <filter>
@@ -34,21 +50,6 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <!-- shiro 安全过滤器 -->
-    <!--<filter>
-        <filter-name>shiroFilter</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-        <async-supported>true</async-supported>
-        <init-param>
-            <param-name>targetFilterLifecycle</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>shiroFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
 
     <!-- 配置log4j配置文件路径 -->
     <context-param>
