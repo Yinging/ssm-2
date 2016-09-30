@@ -1,11 +1,15 @@
 package com.better.shuai.model;
 
+import java.util.Date;
+
 public class Blog extends BlogKey {
     private String title;
 
     private String type;
 
-    private String date;
+    private Date date;
+
+    private String status;
 
     private String content;
 
@@ -25,12 +29,20 @@ public class Blog extends BlogKey {
         this.type = type == null ? null : type.trim();
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date == null ? null : date.trim();
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     public String getContent() {

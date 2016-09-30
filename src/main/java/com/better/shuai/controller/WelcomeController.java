@@ -1,5 +1,6 @@
 package com.better.shuai.controller;
 
+import com.better.shuai.bean.BlogShow;
 import com.better.shuai.model.Blog;
 import com.better.shuai.service.BlogService;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class WelcomeController {
 
     @RequestMapping("index")
     public String blogs(ModelMap modelMap){
-        List<Blog> blogs = blogService.getBlogs();
+        List<BlogShow> blogs = blogService.getBlogs();
         modelMap.addAttribute("blogs", blogs);
         return "index";
     }

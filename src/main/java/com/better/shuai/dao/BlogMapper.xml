@@ -3,13 +3,13 @@
 <mapper namespace="com.better.shuai.dao.BlogMapper" >
   <resultMap id="BaseResultMap" type="com.better.shuai.model.Blog" >
     <id column="day" property="day" jdbcType="VARCHAR" />
-    <id column="id" property="id" jdbcType="INTEGER" />
     <id column="month" property="month" jdbcType="VARCHAR" />
     <id column="urlname" property="urlname" jdbcType="VARCHAR" />
     <id column="year" property="year" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.better.shuai.model.Blog" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    day, id, month, urlname, year, title, type, date
+    day, month, urlname, year, title, type, date, status
   </sql>
   <sql id="Blob_Column_List" >
     content
@@ -115,7 +115,6 @@
     <include refid="Blob_Column_List" />
     from blog
     where day = #{day,jdbcType=VARCHAR}
-      and id = #{id,jdbcType=INTEGER}
       and month = #{month,jdbcType=VARCHAR}
       and urlname = #{urlname,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
@@ -123,7 +122,6 @@
   <delete id="deleteByPrimaryKey" parameterType="com.better.shuai.model.BlogKey" >
     delete from blog
     where day = #{day,jdbcType=VARCHAR}
-      and id = #{id,jdbcType=INTEGER}
       and month = #{month,jdbcType=VARCHAR}
       and urlname = #{urlname,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
@@ -135,13 +133,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.better.shuai.model.Blog" >
-    insert into blog (day, id, month, 
-      urlname, year, title, 
-      type, date, content
+    insert into blog (day, month, urlname, 
+      year, title, type, 
+      date, status, content
       )
-    values (#{day,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{month,jdbcType=VARCHAR}, 
-      #{urlname,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+    values (#{day,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{urlname,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{date,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.better.shuai.model.Blog" >
@@ -149,9 +147,6 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="day != null" >
         day,
-      </if>
-      <if test="id != null" >
-        id,
       </if>
       <if test="month != null" >
         month,
@@ -171,6 +166,9 @@
       <if test="date != null" >
         date,
       </if>
+      <if test="status != null" >
+        status,
+      </if>
       <if test="content != null" >
         content,
       </if>
@@ -178,9 +176,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="day != null" >
         #{day,jdbcType=VARCHAR},
-      </if>
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
       </if>
       <if test="month != null" >
         #{month,jdbcType=VARCHAR},
@@ -198,7 +193,10 @@
         #{type,jdbcType=VARCHAR},
       </if>
       <if test="date != null" >
-        #{date,jdbcType=VARCHAR},
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         #{content,jdbcType=LONGVARCHAR},
@@ -217,9 +215,6 @@
       <if test="record.day != null" >
         day = #{record.day,jdbcType=VARCHAR},
       </if>
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.month != null" >
         month = #{record.month,jdbcType=VARCHAR},
       </if>
@@ -236,7 +231,10 @@
         type = #{record.type,jdbcType=VARCHAR},
       </if>
       <if test="record.date != null" >
-        date = #{record.date,jdbcType=VARCHAR},
+        date = #{record.date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null" >
         content = #{record.content,jdbcType=LONGVARCHAR},
@@ -249,13 +247,13 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update blog
     set day = #{record.day,jdbcType=VARCHAR},
-      id = #{record.id,jdbcType=INTEGER},
       month = #{record.month,jdbcType=VARCHAR},
       urlname = #{record.urlname,jdbcType=VARCHAR},
       year = #{record.year,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
-      date = #{record.date,jdbcType=VARCHAR},
+      date = #{record.date,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -264,13 +262,13 @@
   <update id="updateByExample" parameterType="map" >
     update blog
     set day = #{record.day,jdbcType=VARCHAR},
-      id = #{record.id,jdbcType=INTEGER},
       month = #{record.month,jdbcType=VARCHAR},
       urlname = #{record.urlname,jdbcType=VARCHAR},
       year = #{record.year,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
-      date = #{record.date,jdbcType=VARCHAR}
+      date = #{record.date,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -285,14 +283,16 @@
         type = #{type,jdbcType=VARCHAR},
       </if>
       <if test="date != null" >
-        date = #{date,jdbcType=VARCHAR},
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where day = #{day,jdbcType=VARCHAR}
-      and id = #{id,jdbcType=INTEGER}
       and month = #{month,jdbcType=VARCHAR}
       and urlname = #{urlname,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
@@ -301,10 +301,10 @@
     update blog
     set title = #{title,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
-      date = #{date,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR}
     where day = #{day,jdbcType=VARCHAR}
-      and id = #{id,jdbcType=INTEGER}
       and month = #{month,jdbcType=VARCHAR}
       and urlname = #{urlname,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
@@ -313,9 +313,9 @@
     update blog
     set title = #{title,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
-      date = #{date,jdbcType=VARCHAR}
+      date = #{date,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
     where day = #{day,jdbcType=VARCHAR}
-      and id = #{id,jdbcType=INTEGER}
       and month = #{month,jdbcType=VARCHAR}
       and urlname = #{urlname,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}

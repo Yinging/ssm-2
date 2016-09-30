@@ -1,10 +1,7 @@
 package com.better.shuai.utils;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by 夏帅帅 on 2016/9/16.
@@ -14,11 +11,13 @@ public class DateUtil {
     public static final String MONTH = "MONTH";
     public static final String DAY = "DAY";
 
-    public static String getDate(){
-        Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String dateNowStr = sdf.format(d);
-        return dateNowStr;
+    public static String formatMillLong(Date time){
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        return format.format(time);
+    }
+
+    public static Date getDate(){
+        return new Date(System.currentTimeMillis());
     }
 
     public static Map<String, String> getYearMonthDay(){
