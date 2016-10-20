@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2016-09-30 17:07:06
+Date: 2016-10-17 08:45:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,6 +36,7 @@ CREATE TABLE `blog` (
 -- Records of blog
 -- ----------------------------
 INSERT INTO `blog` VALUES ('blog', 'my blog', '<p>this is my blog.</p>', '0', '2016', '9', '30', '2016-09-30 16:00:44', '0');
+INSERT INTO `blog` VALUES ('deletemyweobi', '注销了我的微博', '<p>把微博注销掉了，自始至终我都是一个不怎么表达自己想法的人，有时高兴了什么都会说，还是微信这种封闭式的朋友圈比较适合我，告别微博，以后就在自己的博客上来说吧。</p>', '0', '2016', '10', '4', '2016-10-04 17:27:34', '0');
 INSERT INTO `blog` VALUES ('test', 'test', 'sdaf', '0', '2016', '9', '30', '2016-09-22 15:55:13', '0');
 
 -- ----------------------------
