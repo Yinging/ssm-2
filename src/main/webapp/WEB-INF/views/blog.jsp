@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/blogbody.css?v=09171349">
+    <link rel="shortcut icon" href="<%=basePath%>img/x.png">
 </head>
 <body>
 <%@ include file="navi.jsp" %>

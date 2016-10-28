@@ -28,6 +28,7 @@
     <script type="text/javascript" src="<%=basePath%>js/summernote.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/summernote-zh-CN.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/edit.js"></script>
+    <link rel="shortcut icon" href="<%=basePath%>img/x.png">
 </head>
 <body>
 <%@ include file="navi.jsp" %>

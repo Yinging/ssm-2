@@ -24,6 +24,8 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<%=basePath%>img/x.png">
+
 </head>
 <body style="background-color: #fcfcfc">
 <%@ include file="navi.jsp" %>
