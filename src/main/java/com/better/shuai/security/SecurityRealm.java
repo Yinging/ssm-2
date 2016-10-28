@@ -36,14 +36,12 @@ public class SecurityRealm extends AuthorizingRealm{
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("权限检查");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         String username = String.valueOf(principalCollection.getPrimaryPrincipal());
         final User user = userService.selectByUsername(username);
         final List<Role> roleInfos = roleService.selectRolesByUserId(user.getId());
         for (Role role : roleInfos) {
             // 添加角色
-            System.err.println(role);
             authorizationInfo.addRole(role.getRoleSign());
 
             final List<Permission> permissions = permissionService.selectPermissionsByRoleId(role.getId());
