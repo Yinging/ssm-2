@@ -90,7 +90,8 @@ public class BlogService {
         blog.setType(type);
         blog.setStatus("0");
 
-        blogMapper.insert(blog);
+        int result = blogMapper.insert(blog);
+        System.out.println("result: " + result);
     }
 
 }
