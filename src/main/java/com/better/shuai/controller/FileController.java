@@ -22,7 +22,7 @@ public class FileController {
         String path = request.getSession().getServletContext().getRealPath("/img");//项目中的img文件夹下
         String fileName = file.getOriginalFilename();
         Map<String, Object> map = new HashMap<>();
-        map.put("fileName","http://115.159.148.99:8080/ssm/rest/img/" + fileName);
+        map.put("fileName","http://127.0.0.1:8080/ssm/rest/img/" + fileName);
         File targetFile = new File(path, fileName);
         if(!targetFile.exists()){
             targetFile.mkdirs();

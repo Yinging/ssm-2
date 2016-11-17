@@ -25,6 +25,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://github.com/smay1227">GitHub</a></li>
+                <li><a href="rest/aboutme">About me</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

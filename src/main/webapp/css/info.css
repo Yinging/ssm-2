@@ -1,0 +1,46 @@
+.info{
+    font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.info H2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    margin-bottom: 60px;
+    line-height: 150%;
+    color: #666666;
+    border-bottom: 1px LightGrey solid;
+}
+
+.info H3 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px LightGrey solid;
+    width: 98%;
+    line-height: 150%;
+    color: #666666;
+}
+
+.info H4 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px LightGrey solid;
+    width: 98%;
+    line-height: 150%;
+    color: #666666;
+}
+
+.info img {
+    box-shadow: 0 0 10px #555;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 10px #555;
+    float: right;
+    width: 100px;
+    height: 100px;
+}
+
+.info li {
+    margin-left: 10px;
+}

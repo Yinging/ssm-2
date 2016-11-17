@@ -24,7 +24,7 @@ $(document).ready(function () {
                             console.log("-------->" + json["fileName"]);
                             $('#summernote').summernote('insertImage', json["fileName"]);
                         },
-                        error : console.log("-------->error!")//YUNM.ajaxError
+                        error : console.log("-------->error!")
                     });
                 });
             }
