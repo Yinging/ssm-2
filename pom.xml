@@ -315,7 +315,6 @@
             <version>${cglib.version}</version>
         </dependency>
 
-
         <!-- shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>

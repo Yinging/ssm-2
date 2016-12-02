@@ -20,7 +20,6 @@
     <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.0.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>js/edit.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
