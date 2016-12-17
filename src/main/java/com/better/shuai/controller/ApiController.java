@@ -30,7 +30,7 @@ public class ApiController {
         return blogs;
     }
 
-    @RequestMapping(value = "/{year}/{month}/{day}/{urlname}")
+    @RequestMapping(value = "blog/{year}/{month}/{day}/{urlname}")
     @ResponseBody
     public Blog blog(@PathVariable("year") String year, @PathVariable("month") String month,
                        @PathVariable("day") String day, @PathVariable("urlname") String urlname){
