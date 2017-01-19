@@ -34,12 +34,11 @@ public class ApiController {
     @RequestMapping("blogs")
     @ResponseBody
     public List<BlogShow> blogs(){
-        System.out.println("get blogs");
         List<BlogShow> blogs = blogService.getBlogs();
         return blogs;
     }
 
-    @RequestMapping(value = "blog/{year}/{month}/{day}/{urlname}")
+    @RequestMapping(value = "/blog/{year}/{month}/{day}/{urlname}")
     @ResponseBody
     public Blog blog(@PathVariable("year") String year, @PathVariable("month") String month,
                        @PathVariable("day") String day, @PathVariable("urlname") String urlname){
@@ -51,7 +50,6 @@ public class ApiController {
     @ResponseBody
     public String login(@RequestBody Map<String,Object> params,
                         HttpServletRequest request) {
-        System.out.println("login");
         try {
             Subject subject = SecurityUtils.getSubject();
             // 已登陆
@@ -69,6 +67,16 @@ public class ApiController {
             return "1";
         }
         return "0";
+    }
+
+    @RequestMapping(value = "/blog/insert", method = RequestMethod.POST)
+    @ResponseBody
+    public String blogInsert(@RequestBody Map<String,Object> params) {
+        String urlname = params.get("urlname").toString();
+        String title = params.get("title").toString();
+        String content = params.get("content").toString();
+        blogService.insert(urlname, content, title, "0");
+        return "1";
     }
 
 }

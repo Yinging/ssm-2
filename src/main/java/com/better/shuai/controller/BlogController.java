@@ -19,7 +19,7 @@ public class BlogController {
     BlogService blogService;
 
     @RequestMapping("/delete/{urlname}")
-    public String delete(@PathVariable("urlname") String urlname){
+    public String delete(@PathVariable("urlname") String urlname) {
         blogService.delete(urlname);
         return "redirect:/rest/index";
     }
@@ -27,26 +27,24 @@ public class BlogController {
     @RequestMapping(value = "/{year}/{month}/{day}/{urlname}")
     public String blog(@PathVariable("year") String year, @PathVariable("month") String month,
                        @PathVariable("day") String day, @PathVariable("urlname") String urlname,
-                       ModelMap modelMap){
+                       ModelMap modelMap) {
         Blog blog = blogService.blog(year, month, day, urlname);
         modelMap.addAttribute("blog", blog);
         return "blog";
     }
 
     @RequestMapping(value = "/edit")
-    public String blogEdit(){
+    public String blogEdit() {
         return "edit";
     }
 
     @RequestMapping(value = "/insert")
     @ResponseBody
-        public String blogInsert(@RequestParam(value = "urlname", required = false) String urlname,
+    public String blogInsert(@RequestParam(value = "urlname", required = false) String urlname,
                              @RequestParam(value = "title", required = false) String title,
-                             @RequestParam(value = "content", required = false) String content){
+                             @RequestParam(value = "content", required = false) String content) {
         blogService.insert(urlname, content, title, "0");
-        return "success";
+        return "0";
     }
-
-
 
 }
